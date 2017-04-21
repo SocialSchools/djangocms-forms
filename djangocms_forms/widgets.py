@@ -27,7 +27,7 @@ class ReCaptchaWidget(widgets.Widget):
 
     def render(self, name, value, attrs=None):
         site_id = settings.DJANGOCMS_FORMS_RECAPTCHA_PUBLIC_KEY
-        template = '<div class="g-recaptcha" id="%(widget_id)s" siteId="' + site_id + '"></div>'
+        template = '<div class="g-recaptcha" id="%(widget_id)s" data-sitekey="6LcaDh4UAAAAAAwK60ks64civITF7cFEhwCaqZgA"></div>'
         return mark_safe(template % {'widget_id': 'id_%s' % name})
 
     def value_from_datadict(self, data, files, name):
