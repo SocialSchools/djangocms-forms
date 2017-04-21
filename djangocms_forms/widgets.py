@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 
 from django.forms import widgets
+from django.conf import settings
 from django.utils.safestring import mark_safe
 
 
@@ -25,7 +26,8 @@ class TimeInput(widgets.TextInput):
 class ReCaptchaWidget(widgets.Widget):
 
     def render(self, name, value, attrs=None):
-        template = '<div class="g-recaptcha" id="%(widget_id)s"></div>'
+        site_id = settings.DJANGOCMS_FORMS_RECAPTCHA_PUBLIC_KEY
+        template = '<div class="g-recaptcha" id="%(widget_id)s" siteId="' + site_id + '"></div>'
         return mark_safe(template % {'widget_id': 'id_%s' % name})
 
     def value_from_datadict(self, data, files, name):

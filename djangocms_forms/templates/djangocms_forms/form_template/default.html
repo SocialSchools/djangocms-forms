@@ -56,17 +56,17 @@
 {% endaddtoblock %}
 {% addtoblock "js" %}
     {% if instance.use_recaptcha %}
-        <script src="https://www.google.com/recaptcha/api.js?onload=reCapctchaOnloadCallback&render=explicit" async defer></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     {% endif %}
 	<script src="{% static 'js/djangocms_forms/libs/jquery.form.min.js' %}"></script>
 	<script src="{% static 'js/djangocms_forms/jquery.djangocms-forms.js' %}"></script>
 
 	<script type="text/javascript">
-		$(function() {
-		  $('.forms').cmsForms({
-			  'reCaptchaSiteKey': '{{ recaptcha_site_key }}',
-			  'redirectDelay': {{ redirect_delay|default:1000 }}
-		  });
-		});
+		// $(function() {
+		//   $('.forms').cmsForms({
+		// 	  'reCaptchaSiteKey': '{{ recaptcha_site_key }}',
+		// 	  'redirectDelay': {{ redirect_delay|default:1000 }}
+		//   });
+		// });
 	</script>
 {% endaddtoblock %}
