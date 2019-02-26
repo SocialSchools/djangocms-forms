@@ -355,7 +355,7 @@ class FormBuilder(forms.Form):
         message = render_to_string('djangocms_forms/email_template/email.txt', context)
         message_html = render_to_string('djangocms_forms/email_template/email.html', context)
 
-        email = EmailMultiAlternatives(mail_subject, message, mail_from, mail_to)
+        email = EmailMultiAlternatives(mail_subject, message, mail_from, mail_to, reply_to=[mail_from])
         email.attach_alternative(message_html, 'text/html')
 
         if self.form_definition.email_uploaded_files:
